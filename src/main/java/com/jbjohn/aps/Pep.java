@@ -30,66 +30,9 @@ public class Pep {
 
     public static void main(String[] args) {
         try {
-
-            /**
-             * PEP SDK uses SLF4J(http://www.slf4j.org/) logging by default.
-             * SLF4j conforms to secure logging practices recommended by
-             * Veracode(http://www.veracode.com/). One can opt to use
-             * LOG4J(http://logging.apache.org/) or turn off logging completely
-             * if needed using the methods below. It is necessary to set these
-             * Logger characteristics prior to using any other PEP SDK API in
-             * order see their effect.
-             */
-            /** Use LOG4J logging system */
-            // SDKLogger.setLoggerType("LOG4J");
-            /** Completely turn off logging */
-            // SDKLogger.enableLogging(false);
-
-            /**
-             * Axiomatics PDP SDK provides 3 different methods to create a
-             * Connection to a PDP using BuildablePDPConnectionFactory
-             */
-
-            /**
-             * Method 1. Reads the connection properties file named
-             * pdp.properties from the CLASSPATH and instantiates the driver
-             * object. This file has to be created before the following code
-             * snippet is executed. It does not exist by default.
-             */
-            System.out.println("Connecting to the PDP with BuildablePDPConnectionFactory.getPDPConnection()");
-            BuildablePDPConnection pdpConn1 = BuildablePDPConnectionFactory.getPDPConnection();
-
-            /**
-             * Method 2. Reads the connection properties file whose name and
-             * path relative to the context root are provided to the
-             * BuildablePDPConnectionFactory as an argument. The example below
-             * uses the file Aps5WsPdpConnection.properties, relative to the
-             * context root
-             */
-            System.out
-                    .println("Connecting to the PDP using BuildablePDPConnectionFactory.getPDPConnection(Aps5WsPdpConnection.properties)...");
             BuildablePDPConnection pdpConn2 = BuildablePDPConnectionFactory
                     .getPDPConnection("Aps5WsPdpConnection.properties");
 
-            /**
-             * Method 3. Reads the connection properties from the properties
-             * object constructed and provided as an argument to the Factory.
-             * The driver class name and the URL for the webservice are the
-             * minimal mandatory properties required to instantiate a
-             * custom BuildablePDPConnection extending
-             * ConfigurablePDPConnection.
-             *
-             * If the PDP is a secure service, more
-             * authentication properties may be required.
-             *
-             * PDPConnectionProperties and its subclasses
-             * Aps5WsPDPConnectionProperties,
-             * Aps5SimpleSoapPDPConnectionProperties,
-             * AbstractSecurePdp4ConnectionProperties,
-             * Aps4CxfPdpConnectionProperties and
-             * Aps4MetroPdpConnectionProperties enumerate the list of property
-             * keys necessary to instantiate PDPConnections.
-             */
             Aps5WsPDPConnectionProperties pdpConProps = new Aps5WsPDPConnectionProperties();
             pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER,
                     "com.axiomatics.sdk.connections.aps5.ws.Aps5WsPDPConnection");
