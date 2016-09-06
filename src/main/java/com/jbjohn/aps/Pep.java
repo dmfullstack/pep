@@ -1,8 +1,13 @@
-package com.jbjohn.aps.pep;
+package com.jbjohn.aps;
 
-class Pep {
-
-    public static void main(String[] args) {
-        System.out.println("Hello world");
+/**
+ * Hello world!
+ *
+ */
+public class Pep
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
     }
 }
