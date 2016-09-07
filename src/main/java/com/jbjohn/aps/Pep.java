@@ -17,7 +17,6 @@ import com.axiomatics.xacml.reqresp.attr.Constants;
 import com.axiomatics.xacml.reqresp.impl.attr.IntegerAttribute;
 import org.w3c.dom.Element;
 
-import java.io.InputStream;
 import java.net.SocketTimeoutException;
 import java.util.Iterator;
 import java.util.List;
