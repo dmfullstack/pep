@@ -31,9 +31,6 @@ public class Pep {
 
     public static void main(String[] args) {
         try {
-            InputStream properties = Pep.class.getResourceAsStream("Aps5WsPdpConnection.properties");
-//            BuildablePDPConnection pdpConn2 = BuildablePDPConnectionFactory
-//                    .getPDPConnection(properties);
 
             Aps5WsPDPConnectionProperties pdpConProps = new Aps5WsPDPConnectionProperties();
             pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER,
@@ -43,7 +40,7 @@ public class Pep {
             pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_TYPE,
                     "jks");
             pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_FILE,
-                    "/vagrant/aps/aps-express-edition/server/asm-pdp-app-tomcat7/conf/truststore.jks");
+                    "/Users/jacobbennyjohn/code/vagrant-ubuntu/aps/aps-express-edition/server/asm-pdp-app-tomcat7/conf/truststore.jks");
             pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_PASSWORD,
                     "jbjohn");
             pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_USERNAME,
