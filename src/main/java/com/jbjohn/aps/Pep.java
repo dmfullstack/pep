@@ -17,6 +17,7 @@ import com.axiomatics.xacml.reqresp.attr.Constants;
 import com.axiomatics.xacml.reqresp.impl.attr.IntegerAttribute;
 import org.w3c.dom.Element;
 
+import java.io.InputStream;
 import java.net.SocketTimeoutException;
 import java.util.Iterator;
 import java.util.List;
@@ -30,14 +31,26 @@ public class Pep {
 
     public static void main(String[] args) {
         try {
-            BuildablePDPConnection pdpConn2 = BuildablePDPConnectionFactory
-                    .getPDPConnection("Aps5WsPdpConnection.properties");
+            InputStream properties = Pep.class.getResourceAsStream("Aps5WsPdpConnection.properties");
+//            BuildablePDPConnection pdpConn2 = BuildablePDPConnectionFactory
+//                    .getPDPConnection(properties);
 
             Aps5WsPDPConnectionProperties pdpConProps = new Aps5WsPDPConnectionProperties();
             pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER,
                     "com.axiomatics.sdk.connections.aps5.ws.Aps5WsPDPConnection");
             pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_WEBSERVICE_URL,
-                    "http://host:port/asm-pdp/pdp?wsdl");
+                    "https://ecfd.vagrant-local.jbj:8643/asm-pdp/pdp?wsdl");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_TYPE,
+                    "jks");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_FILE,
+                    "/vagrant/aps/aps-express-edition/server/asm-pdp-app-tomcat7/conf/truststore.jks");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_PASSWORD,
+                    "jbjohn");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_USERNAME,
+                    "pdp-user");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_PASSWORD,
+                    "ftG7aO,g");
+
             BuildablePDPConnection pdpConn3 = BuildablePDPConnectionFactory.getPDPConnection(pdpConProps);
 
             /**
@@ -74,7 +87,7 @@ public class Pep {
 
             // Evaluate the request
             System.out.println("Evaluating the Request using PDPConnection.evaluate(request)...");
-            SDKResponse response = pdpConn2.evaluate(request);
+            SDKResponse response = pdpConn3.evaluate(request);
 
             // Access the decision from SDKResponse
             System.out.println("Reading the decision using SDKResponse.getDecision() : " + response.getDecision() + "("
@@ -105,7 +118,7 @@ public class Pep {
                 System.out
                         .println("Evaluating the Request using BuildablePDPConnection.evaluate(request,transactionId)...");
                 String transactionId = "TransactionIdentifier";
-                response = pdpConn2.evaluate(request.copy(), transactionId);
+                response = pdpConn3.evaluate(request.copy(), transactionId);
             } catch (PDPConnectionException e) {
                 System.out
                         .println("Evaluation of a request with a transaction-id is supported only by PDP Version 5.2 or higher");
@@ -122,7 +135,7 @@ public class Pep {
 
             // Evaluate with Trace
             System.out.println("Evaluating the Request with trace using PDPConnection.evaluateWithTrace(request)...");
-            SDKResponseWithTrace responseWithTrace = pdpConn2.evaluateWithTrace(request.copy());
+            SDKResponseWithTrace responseWithTrace = pdpConn3.evaluateWithTrace(request.copy());
 
             // Access the original Xacml Response
             System.out.println("Reading the decision using SDKResponseWithTrace.getDecision() : "
@@ -208,13 +221,13 @@ public class Pep {
             // this indicator set to true and then reads the PolicyIdentifiers
             // from the SDKResponse
 
-            PDPRequestBuilder requestWithPolicyIdList = pdpConn2.getBuilder()
+            PDPRequestBuilder requestWithPolicyIdList = pdpConn3.getBuilder()
                     .addSubjectAttribute(Constants.SUBJECT_ID, "sub")
                     .addResourceAttribute(Constants.RESOURCE_ID, "res")
                     .addActionAttribute(Constants.ACTION_ID, "act")
                     .setReturnPolicyIdList(true);
 
-            SDKResponse responseWithPolicyIdList = pdpConn2.evaluate(requestWithPolicyIdList);
+            SDKResponse responseWithPolicyIdList = pdpConn3.evaluate(requestWithPolicyIdList);
 
             System.out.println("Reading the Policy Identifier List...");
             List<? extends SDKPolicyIdentifier> policyIdentiferList = responseWithPolicyIdList.getPolicyIdList();
