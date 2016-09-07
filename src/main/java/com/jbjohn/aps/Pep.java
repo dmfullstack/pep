@@ -91,6 +91,8 @@ public class Pep {
 
             // Access the SDKResponse as a String
             String responseString = response.getSDKResponseString();
+            System.out.println("Response string");
+            System.out.println(responseString);
 
             /**
              * In order to identify this request in the PDP's server logs, it is
@@ -140,6 +142,7 @@ public class Pep {
             // Access the Trace information
             Element trace = responseWithTrace.getTrace();
             String traceString = responseWithTrace.getTraceString();
+            System.out.println("String trace" + traceString);
 
             /**
              * In addition to trace, several other properties are provided for
@@ -238,6 +241,7 @@ public class Pep {
 
             // Read the status of the decision in the result
             Status status = response.getStatus();
+            System.out.println("Status received : " + status);
 
         } catch (Exception e) {
             e.printStackTrace();
