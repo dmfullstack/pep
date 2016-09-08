@@ -2,3 +2,4 @@
 pep.iml
 target/
 .DS_Store
+*.jks

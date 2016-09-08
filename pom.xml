@@ -6,9 +6,7 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>pep</name>
-    <url>http://maven.apache.org</url>
-
+    <name>PEP</name>
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -20,7 +18,6 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.21</version>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -28,7 +25,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -82,4 +78,3 @@
         <finalName>pep</finalName>
     </build>
 </project>
-

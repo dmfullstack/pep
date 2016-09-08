@@ -31,21 +31,21 @@ public class Pep {
     public static void main(String[] args) {
         try {
 
-            Aps5WsPDPConnectionProperties pdpConProps = new Aps5WsPDPConnectionProperties();
-            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER,
-                    "com.axiomatics.sdk.connections.aps5.ws.Aps5WsPDPConnection");
-            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_WEBSERVICE_URL,
-                    "https://ecfd.vagrant-local.jbj:8643/asm-pdp/pdp?wsdl");
-            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_TYPE,
-                    "jks");
-            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_FILE,
-                    "/Users/jacobbennyjohn/code/vagrant-ubuntu/aps/aps-express-edition/server/asm-pdp-app-tomcat7/conf/truststore.jks");
-            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_PASSWORD,
-                    "jbjohn");
-            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_USERNAME,
-                    "pdp-user");
-            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_PASSWORD,
-                    "ftG7aO,g");
+          Aps5WsPDPConnectionProperties pdpConProps = new Aps5WsPDPConnectionProperties();
+          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER,
+                  "com.axiomatics.sdk.connections.aps5.ws.Aps5WsPDPConnection");
+          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_WEBSERVICE_URL,
+                  "https://ecfd-dev-01.ca.boeing.com:8643/asm-pdp/pdp?wsdl");
+          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_TYPE,
+                  "jks");
+          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_FILE,
+                  "C:/Users/ic242e/code/pep/certificate/ca-truststore.jks");
+          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_PASSWORD,
+                  "pass12");
+          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_USERNAME,
+                  "pdp-user");
+          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_PASSWORD,
+                  "aE_Cy-OA");
 
             BuildablePDPConnection pdpConn3 = BuildablePDPConnectionFactory.getPDPConnection(pdpConProps);
 
