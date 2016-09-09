@@ -66,7 +66,7 @@ public class Pep {
                     .addResourceAttribute(Constants.RESOURCE_ID, "res")
                     .addActionAttribute(Constants.ACTION_ID, "READ")
                     .addEnvironmentAttribute("OperatingSystemName", "Windows")
-                    .addAttribute("urn:oasis:names:tc:xacml:1.0:subject-category:access-subject", "username", "Elliot")
+                    .addAttribute(Constants.SUBJECT_CAT, "username", "Elliot")
                     .setReturnPolicyIdList(false);
 
             /**
