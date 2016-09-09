@@ -35,17 +35,17 @@ public class Pep {
           pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER,
                   "com.axiomatics.sdk.connections.aps5.ws.Aps5WsPDPConnection");
           pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_WEBSERVICE_URL,
-                  "https://ecfd-dev-01.ca.boeing.com:8643/asm-pdp/pdp?wsdl");
+                  "https://192.168.56.103:8643/asm-pdp/pdp?wsdl");
           pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_TYPE,
                   "jks");
           pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_FILE,
-                  "C:/Users/ic242e/code/pep/certificate/ca-truststore.jks");
+                  "C:/Users/ic242e/code/vagrant-ubuntu/aps/certificates/ca-truststore.jks");
           pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_PASSWORD,
-                  "pass12");
+                  "jbjohn");
           pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_USERNAME,
                   "pdp-user");
           pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_PASSWORD,
-                  "aE_Cy-OA");
+                  "%+}req*\"");
 
             BuildablePDPConnection pdpConn3 = BuildablePDPConnectionFactory.getPDPConnection(pdpConProps);
 
@@ -62,12 +62,12 @@ public class Pep {
              */
             System.out.println("Generating an example PDPRequestBuilder ...");
             PDPRequestBuilder request = pdpConn3.getBuilder()
-                    .addSubjectAttribute(Constants.SUBJECT_ID, "sub")
+//                    .addSubjectAttribute(Constants.SUBJECT_ID, "Ebi")
                     .addResourceAttribute(Constants.RESOURCE_ID, "res")
-                    .addActionAttribute(Constants.ACTION_ID, "act")
+                    .addActionAttribute(Constants.ACTION_ID, "READ")
                     .addEnvironmentAttribute("OperatingSystemName", "Windows")
-                    .addAttribute("MyCategory", "MyAttributeName", new IntegerAttribute(500))
-                    .setReturnPolicyIdList(true);
+                    .addAttribute("urn:oasis:names:tc:xacml:1.0:subject-category:access-subject", "username", "Elliot")
+                    .setReturnPolicyIdList(false);
 
             /**
              * The code below evaluates the request and obtains an SDKResonse.
@@ -142,7 +142,7 @@ public class Pep {
             // Access the Trace information
             Element trace = responseWithTrace.getTrace();
             String traceString = responseWithTrace.getTraceString();
-            System.out.println("String trace" + traceString);
+            //System.out.println("String trace" + traceString);
 
             /**
              * In addition to trace, several other properties are provided for
