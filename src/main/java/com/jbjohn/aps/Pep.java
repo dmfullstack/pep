@@ -14,7 +14,6 @@ import com.axiomatics.xacml.reqresp.Category;
 import com.axiomatics.xacml.reqresp.Obligation;
 import com.axiomatics.xacml.reqresp.Status;
 import com.axiomatics.xacml.reqresp.attr.Constants;
-import com.axiomatics.xacml.reqresp.impl.attr.IntegerAttribute;
 import org.w3c.dom.Element;
 
 import java.net.SocketTimeoutException;
@@ -31,21 +30,21 @@ public class Pep {
     public static void main(String[] args) {
         try {
 
-          Aps5WsPDPConnectionProperties pdpConProps = new Aps5WsPDPConnectionProperties();
-          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER,
-                  "com.axiomatics.sdk.connections.aps5.ws.Aps5WsPDPConnection");
-          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_WEBSERVICE_URL,
-                  "https://192.168.56.103:8643/asm-pdp/pdp?wsdl");
-          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_TYPE,
-                  "jks");
-          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_FILE,
-                  "C:/Users/ic242e/code/vagrant-ubuntu/aps/certificates/ca-truststore.jks");
-          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_PASSWORD,
-                  "jbjohn");
-          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_USERNAME,
-                  "pdp-user");
-          pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_PASSWORD,
-                  "%+}req*\"");
+            Aps5WsPDPConnectionProperties pdpConProps = new Aps5WsPDPConnectionProperties();
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER,
+                    "com.axiomatics.sdk.connections.aps5.ws.Aps5WsPDPConnection");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_WEBSERVICE_URL,
+                    "https://ecfd.vagrant-local.jbj:8643/asm-pdp/pdp?wsdl");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_TYPE,
+                    "jks");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_FILE,
+                    "/home/jacobbj/code/pep/certificate/ca-truststore.jks");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_TRUSTSTORE_PASSWORD,
+                    "jbjohn");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_USERNAME,
+                    "pdp-user");
+            pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_PASSWORD,
+                    "%+}req*\"");
 
             BuildablePDPConnection pdpConn3 = BuildablePDPConnectionFactory.getPDPConnection(pdpConProps);
 
