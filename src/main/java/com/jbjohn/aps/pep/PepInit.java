@@ -1,4 +1,4 @@
-package com.jbjohn.aps;
+package com.jbjohn.aps.pep;
 
 import com.axiomatics.sdk.connections.BuildablePDPConnection;
 import com.axiomatics.sdk.connections.BuildablePDPConnectionFactory;
@@ -55,7 +55,7 @@ public class PepInit {
         return decision;
     }
 
-    private String getDecisionString(int decision) {
+    public static String getDecisionString(int decision) {
         String decisionString = "";
         if (decision >= 0 && decision < 4) {
             String[] decisionStrings = {"Permit", "Deny", "Indeterminate", "NotApplicable"};

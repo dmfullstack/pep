@@ -1,4 +1,4 @@
-package com.jbjohn.aps;
+package com.jbjohn.aps.pep;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

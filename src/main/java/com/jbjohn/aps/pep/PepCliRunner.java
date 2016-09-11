@@ -1,4 +1,4 @@
-package com.jbjohn.aps;
+package com.jbjohn.aps.pep;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
