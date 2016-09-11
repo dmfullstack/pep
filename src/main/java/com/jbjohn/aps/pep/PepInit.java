@@ -19,7 +19,7 @@ public class PepInit {
 
     Aps5WsPDPConnectionProperties pdpConProps;
 
-    PepInit(PepProperties properties) {
+    public PepInit(PepProperties properties) {
         pdpConProps = new Aps5WsPDPConnectionProperties();
         pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER, properties.getDriver());
         pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_WEBSERVICE_URL, properties.getWsdl());
