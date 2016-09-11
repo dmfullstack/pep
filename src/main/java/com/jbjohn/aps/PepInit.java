@@ -11,15 +11,15 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * Hello world!
+ * PEP initializer
  */
-public class Pep {
+public class PepInit {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(Pep.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(PepInit.class);
 
     Aps5WsPDPConnectionProperties pdpConProps;
 
-    Pep(PepProperties properties) {
+    PepInit(PepProperties properties) {
         pdpConProps = new Aps5WsPDPConnectionProperties();
         pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_PDP_DRIVER, properties.getDriver());
         pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_WEBSERVICE_URL, properties.getWsdl());
@@ -30,7 +30,11 @@ public class Pep {
         pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_PASSWORD, properties.getPdpPass());
     }
 
-    public void run(String name) {
+    public int run(String name) {
+        /**
+         * Defaulting the decision to '2' if the application errors out!
+         */
+        int decision = 2;
         try {
 
             BuildablePDPConnection pdpConn3 = BuildablePDPConnectionFactory.getPDPConnection(pdpConProps);
@@ -41,15 +45,17 @@ public class Pep {
 
             SDKResponse response = pdpConn3.evaluate(request);
 
-            LOGGER.info((char)27 + "[31mDecision : " + response.getDecision() + " => " + "("
-                    + getDecisionString(response.getDecision()) + ")" + (char)27 + "[0m");
-
+            decision = response.getDecision();
         } catch (Exception e) {
             LOGGER.error("Exception fetching decision", e);
         }
+        LOGGER.info((char)27 + "[31mDecision : " + decision + " => " + "("
+                + getDecisionString(decision) + ")" + (char)27 + "[0m");
+
+        return decision;
     }
 
-    private static String getDecisionString(int decision) {
+    private String getDecisionString(int decision) {
         String decisionString = "";
         if (decision >= 0 && decision < 4) {
             String[] decisionStrings = {"Permit", "Deny", "Indeterminate", "NotApplicable"};

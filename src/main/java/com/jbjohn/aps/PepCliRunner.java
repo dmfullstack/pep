@@ -16,7 +16,7 @@ public class PepCliRunner implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 
-        Pep pep = new Pep(properties);
+        PepInit pep = new PepInit(properties);
         pep.run(properties.getUsername());
     }
 }
