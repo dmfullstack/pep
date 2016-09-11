@@ -6,7 +6,7 @@
             <AllOf>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">.*</AttributeValue>
-                    <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                    <AttributeDesignator AttributeId="username" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                 </Match>
             </AllOf>
         </AnyOf>
@@ -17,7 +17,7 @@
                 <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
                     <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                 </Apply>
-                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Jacob</AttributeValue>
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">US</AttributeValue>
             </Apply>
         </Condition>
     </Rule>

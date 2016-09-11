@@ -65,7 +65,7 @@ public class Pep {
 //                    .addResourceAttribute(Constants.RESOURCE_ID, "res")
 //                    .addActionAttribute(Constants.ACTION_ID, "READ")
 //                    .addEnvironmentAttribute("OperatingSystemName", "Windows")
-                    .addAttribute(Constants.SUBJECT_CAT, Constants.SUBJECT_ID, "Jacob")
+                    .addAttribute(Constants.SUBJECT_CAT, "username", "Elliot")
                     .setReturnPolicyIdList(true);
 
             /**
