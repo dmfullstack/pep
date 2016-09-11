@@ -62,11 +62,11 @@ public class Pep {
             System.out.println("Generating an example PDPRequestBuilder ...");
             PDPRequestBuilder request = pdpConn3.getBuilder()
 //                    .addSubjectAttribute(Constants.SUBJECT_ID, "Ebi")
-                    .addResourceAttribute(Constants.RESOURCE_ID, "res")
-                    .addActionAttribute(Constants.ACTION_ID, "READ")
-                    .addEnvironmentAttribute("OperatingSystemName", "Windows")
-                    .addAttribute(Constants.SUBJECT_CAT, "username", "Elliot")
-                    .setReturnPolicyIdList(false);
+//                    .addResourceAttribute(Constants.RESOURCE_ID, "res")
+//                    .addActionAttribute(Constants.ACTION_ID, "READ")
+//                    .addEnvironmentAttribute("OperatingSystemName", "Windows")
+                    .addAttribute(Constants.SUBJECT_CAT, Constants.SUBJECT_ID, "Jacob")
+                    .setReturnPolicyIdList(true);
 
             /**
              * The code below evaluates the request and obtains an SDKResonse.
@@ -141,7 +141,7 @@ public class Pep {
             // Access the Trace information
             Element trace = responseWithTrace.getTrace();
             String traceString = responseWithTrace.getTraceString();
-            //System.out.println("String trace" + traceString);
+            // System.out.println("String trace" + traceString);
 
             /**
              * In addition to trace, several other properties are provided for

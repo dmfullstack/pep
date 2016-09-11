@@ -5,18 +5,18 @@
       <xacml3:AllOf>
         <xacml3:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
           <xacml3:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">.*</xacml3:AttributeValue>
-          <xacml3:AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"  AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
+          <xacml3:AttributeDesignator Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
         </xacml3:Match>
       </xacml3:AllOf>
     </xacml3:AnyOf>
   </xacml3:Target>
-  <xacml3:Rule RuleId="blunt_access_rule" Effect="Permit">
+  <xacml3:Rule RuleId="is_us_person" Effect="Permit">
     <xacml3:Target>
       <xacml3:AnyOf>
         <xacml3:AllOf>
           <xacml3:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml3:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">READ</xacml3:AttributeValue>
-            <xacml3:AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"  AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
+            <xacml3:AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" ttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
           </xacml3:Match>
         </xacml3:AllOf>
       </xacml3:AnyOf>
@@ -24,15 +24,15 @@
     <xacml3:Condition >
       <xacml3:Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
         <xacml3:Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
-          <xacml3:AttributeDesignator Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"  AttributeId="country" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
+          <xacml3:AttributeDesignator Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="country" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
         </xacml3:Apply>
         <xacml3:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">US</xacml3:AttributeValue>
       </xacml3:Apply>
     </xacml3:Condition>
   <xacml3:AdviceExpressions>
-      <xacml3:AdviceExpression AdviceId="blunt_access-permit" AppliesTo="Permit">
-        <xacml3:AttributeAssignmentExpression AttributeId="http://boeingexportcontrol/blunt_access">
-          <xacml3:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Executed all the way till 5.8, location and country logic. Provided access the all the data, since the person is in US and is US citizen</xacml3:AttributeValue>
+      <xacml3:AdviceExpression AdviceId="is_us_person-permit" AppliesTo="Permit">
+        <xacml3:AttributeAssignmentExpression AttributeId="http://ecfd/blunt_access">
+          <xacml3:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Is US person</xacml3:AttributeValue>
         </xacml3:AttributeAssignmentExpression>
       </xacml3:AdviceExpression>
   </xacml3:AdviceExpressions>
