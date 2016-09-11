@@ -41,8 +41,8 @@ public class Pep {
 
             SDKResponse response = pdpConn3.evaluate(request);
 
-            LOGGER.info("Decision : " + response.getDecision() + " => " + "("
-                    + getDecisionString(response.getDecision()) + ")");
+            LOGGER.info((char)27 + "[31mDecision : " + response.getDecision() + " => " + "("
+                    + getDecisionString(response.getDecision()) + ")" + (char)27 + "[0m");
 
         } catch (Exception e) {
             LOGGER.error("Exception fetching decision", e);
