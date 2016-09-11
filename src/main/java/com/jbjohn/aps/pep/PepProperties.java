@@ -18,5 +18,6 @@ public class PepProperties {
     private String trustStorePass;
     private String pdpUser;
     private String pdpPass;
-    private String username;
+    private String userName;
+    private String workFlow;
 }

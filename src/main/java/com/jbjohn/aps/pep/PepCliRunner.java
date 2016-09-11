@@ -17,6 +17,6 @@ public class PepCliRunner implements CommandLineRunner {
     public void run(String... strings) throws Exception {
 
         PepInit pep = new PepInit(properties);
-        pep.run(properties.getUsername());
+        pep.run(properties.getUserName(), properties.getWorkFlow());
     }
 }

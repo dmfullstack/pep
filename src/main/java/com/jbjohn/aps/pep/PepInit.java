@@ -30,7 +30,7 @@ public class PepInit {
         pdpConProps.setProperty(Aps5WsPDPConnectionProperties.KEY_APS5_BASIC_AUTH_PASSWORD, properties.getPdpPass());
     }
 
-    public int run(String name) {
+    public int run(String name, String flow) {
         /**
          * Defaulting the decision to '2' if the application errors out!
          */
@@ -41,6 +41,7 @@ public class PepInit {
 
             PDPRequestBuilder request = pdpConn3.getBuilder()
                     .addAttribute(Constants.RESOURCE_CAT, Constants.RESOURCE_ID, name)
+                    .addAttribute(Constants.ACTION_CAT, Constants.ACTION_ID, flow)
                     .setReturnPolicyIdList(false);
 
             SDKResponse response = pdpConn3.evaluate(request);
