@@ -36,7 +36,7 @@ public class Pep {
             BuildablePDPConnection pdpConn3 = BuildablePDPConnectionFactory.getPDPConnection(pdpConProps);
 
             PDPRequestBuilder request = pdpConn3.getBuilder()
-                    .addAttribute(Constants.SUBJECT_CAT, "username", name)
+                    .addAttribute(Constants.RESOURCE_CAT, Constants.RESOURCE_ID, name)
                     .setReturnPolicyIdList(false);
 
             SDKResponse response = pdpConn3.evaluate(request);
