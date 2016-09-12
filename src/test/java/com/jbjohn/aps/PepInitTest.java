@@ -5,9 +5,9 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple Pep.
+ * Unit test for simple PepInit.
  */
-public class PepTest
+public class PepInitTest
     extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class PepTest
      *
      * @param testName name of the test case
      */
-    public PepTest(String testName )
+    public PepInitTest(String testName )
     {
         super( testName );
     }
@@ -25,7 +25,7 @@ public class PepTest
      */
     public static Test suite()
     {
-        return new TestSuite( PepTest.class );
+        return new TestSuite( PepInitTest.class );
     }
 
     /**

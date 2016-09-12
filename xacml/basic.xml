@@ -6,7 +6,7 @@
             <AllOf>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">.*</AttributeValue>
-                    <AttributeDesignator AttributeId="username" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
+                    <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
                 </Match>
             </AllOf>
         </AnyOf>
