@@ -57,7 +57,7 @@
                         <configuration>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/extLib</directory>
+                                    <directory>${basedir}/lib</directory>
                                 </resource>
                             </resources>
                         </configuration>
